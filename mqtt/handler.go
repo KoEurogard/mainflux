@@ -24,7 +24,8 @@ var _ session.Handler = (*handler)(nil)
 const protocol = "mqtt"
 
 var (
-	channelRegExp         = regexp.MustCompile(`^\/?channels\/([\w\-]+)\/messages(\/[^?]*)?(\?.*)?$`)
+//	channelRegExp         = regexp.MustCompile(`^\/?channels\/([\w\-]+)\/messages(\/[^?]*)?(\?.*)?$`)
+	channelRegExp         = regexp.MustCompile(`^\/^channels\/(.+?)\/messages\/([a-z0-9]+-[a-z0-9]+-[a-z0-9]+-[a-z0-9]+-[a-z0-9]+)\/?(.*)?.*$`)
 	errMalformedTopic     = errors.New("malformed topic")
 	errMalformedData      = errors.New("malformed request data")
 	errMalformedSubtopic  = errors.New("malformed subtopic")
